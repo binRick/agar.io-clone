@@ -6,9 +6,11 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var SAT = require('sat');
-
+var fs = require('fs');
 // Import game settings
-var c = require('../../config.json');
+var c = JSON.parse(fs.readFileSync(process.argv[2]));
+
+console.log(c.port);
 
 // Import utilities
 var util = require('./lib/util');
